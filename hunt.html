@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+       body{
+        background-color: cornsilk !important;
+        font-family: 'Pirata One', cursive !important;
+       }
+       body:hover{
+        cursor: url(icons/hook.png), auto;
+       }
+       .profile{
+        max-width:100%;
+        max-height:100%;
+       }
+       .steps{
+         margin: 10px auto;
+       }
+       .steps ul{
+         text-align: center;
+         margin-top: 18px !important;
+       }
+       .steps ul li{
+         display: inline-block;
+         width: 19%;
+         border: 1px solid rgba(0,0,0,.125);
+         padding-top: 8px;
+         cursor: url(icons/pistol.png), auto;
+         vertical-align: top;
+       }
+       .steps ul li .bi:after{
+         content: '';
+         background-color: red;
+         height: 5px;
+         width: 200px;
+         display: block;
+         position: absolute;
+       }
+       .steps ul li img{
+        background-color: white;
+        border-radius: 22px;
+        padding: 4px;
+       }
+       .list-group{
+        margin-left: 10px;
+        height: 560px;
+        overflow-y: scroll;
+       }
+       .list-group-item{
+         background-color: burlywood !important;
+         color: white !important;
+         cursor: url(icons/pistol.png), auto;
+         padding: 1px;
+       }
+       .list-group-item.active-unit{
+          border-color: yellow;
+          border-width: 4px;
+       }
+       .card{
+         background-color: burlywood !important;
+         color: black !important;
+       }
+       .action{
+          font-style: italic;
+        }
+        .active-turn{
+          background-color: blue;
+        }
+        .down-turn{
+          background-color: gray;
+        }
+        .titled{
+          text-align: center;
+        }
+        .navbar{
+          background-color: #d4ad62 !important;
+          color: black !important;
+        }
+        .add-step-btn{
+          width: 10%;
+          border: 1px solid rgba(0,0,0,.33);
+          padding: 8px;
+          cursor: url(icons/pistol.png), auto;
+        }
+        .invisible-input
+        {
+            background: transparent;
+            border: none;
+        }
+        .invisible-input:focus{
+          border: 1px solid rgba(0,0,0,.25);
+        }
+        .invisible-input:disabled{
+            color: black;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <nav class="navbar" >
+      <span class="navbar-brand mb-0 h1" style="margin: 0 auto;">Treasure Hunter</span>
+    </nav>
+    <!--The div element for the map -->
+    <div class="row">
+      <div class="col-md-3">
+        <div id="activity-list" class="list-group">
+        </div>
+      </div>
+      <div class="col-md-9">
+
+       <!-- <label>Place</label>
+        <input id="geocode" />
+        <button onclick="summonDragon()">Summon</button>
+        <button onclick="deploySoldiers()">Deploy</button>-->
+        <div id="map"></div>
+      </div>
+    </div>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7-lrqftV-VGCY77u0VHrqk2Enl3v_jCo&callback=initMap">
+    </script>
+    <script src="https://js.radar.io/v3/radar.js"></script>
+    <script src="/hunt.js"></script>
+  </body>
+</html>
